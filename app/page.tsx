@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import BookingSearch from "@/components/BookingSearch";
 import GsapProvider from "@/components/GsapProvider";
 import SiteFooter from "@/components/SiteFooter";
@@ -48,7 +49,9 @@ export default function HomePage() {
               </p>
 
               <div className="mt-10 max-w-6xl">
-                <BookingSearch />
+                <Suspense fallback={null}>
+                  <BookingSearch />
+                </Suspense>
               </div>
             </div>
           </div>
@@ -56,7 +59,10 @@ export default function HomePage() {
 
         <section className="bg-white py-24">
           <div className="mx-auto max-w-7xl px-5">
-            <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end" data-reveal>
+            <div
+              className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end"
+              data-reveal
+            >
               <div>
                 <div className="text-xs font-inter font-bold uppercase tracking-[0.3em] text-[#b99655]">
                   Featured Properties
@@ -107,7 +113,7 @@ export default function HomePage() {
                           VND {formatVND(building.priceFrom)}
                         </div>
                       </div>
-                      <div className="text-sm font-inter font-bold   uppercase tracking-[0.14em] text-[#b99655]">
+                      <div className="text-sm font-inter font-bold uppercase tracking-[0.14em] text-[#b99655]">
                         Xem phòng
                       </div>
                     </div>
@@ -145,7 +151,9 @@ export default function HomePage() {
                   <div className="flex items-center justify-center bg-[#09183f] text-xl font-inter font-bold text-[#c9a45c]">
                     0{index + 1}
                   </div>
-                  <div className="p-6 text-sm font-inter font-bold text-slate-700">{item}</div>
+                  <div className="p-6 text-sm font-inter font-bold text-slate-700">
+                    {item}
+                  </div>
                 </div>
               ))}
             </div>
